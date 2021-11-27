@@ -25,9 +25,9 @@ namespace Naloga.Views
 
         private async void LoginBtn_Clicked(object sender, EventArgs e)
         {
-            //bool loggedIn = await Login(NameEntry.Text, PasswordEntry.Text);
+            bool loggedIn = await Login(NameEntry.Text, PasswordEntry.Text);
             //bool loggedIn = await Login("admin@admin.com", "123456");
-            bool loggedIn = true;
+            //bool loggedIn = true;
             if (loggedIn) {
                 await Navigation.PushAsync(new SyllabusPage());
             }
