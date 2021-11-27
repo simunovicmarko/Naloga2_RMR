@@ -1,5 +1,6 @@
 ﻿using Naloga.Models;
 using System;
+using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static Naloga.FirebaseReaderWriter;
 
 namespace Naloga.Views
 {
@@ -16,35 +18,59 @@ namespace Naloga.Views
         public ObservableCollection<Predmet> PredmetnikLetni { get; set; }
         public ObservableCollection<Predmet> PredmetnikZimski { get; set; }
 
-        public SyllabusPage()
-        {
+        public SyllabusPage() {
             InitializeComponent();
+            //Init();
 
-            PredmetnikLetni = new ObservableCollection<Predmet>
-            {
-                new Predmet("Upravljanje IKT"),
-                new Predmet("Podatkovne baze II"),
-                new Predmet("Sistemska podpora IKT"),
-                new Predmet("Podatkovno skladiščenje"),
-                new Predmet("Izbirni predmet II2"),
-                new Predmet("Izbirni predmet III2")
 
-            };
-            
-            PredmetnikZimski = new ObservableCollection<Predmet>
-            {
-                new Predmet("Izbirni predmet IV3"),
-                new Predmet("Praktično usposabljanje", 15),
-                new Predmet("Diplomsko delo", 10)
-            };
+            //PredmetnikLetni = new ObservableCollection<Predmet>
+            //{
+            //    new Predmet("Upravljanje IKT", Semester.Letni),
+            //    new Predmet("Podatkovne baze II", Semester.Letni),
+            //    new Predmet("Sistemska podpora IKT", Semester.Letni),
+            //    new Predmet("Podatkovno skladiščenje", Semester.Letni),
+            //    new Predmet("Izbirni predmet II2", Semester.Letni),
+            //    new Predmet("Izbirni predmet III2", Semester.Letni)
 
+            //};
+
+            //PredmetnikZimski = new ObservableCollection<Predmet>
+            //{
+            //    new Predmet("Izbirni predmet IV3", Semester.Zimski),
+            //    new Predmet("Praktično usposabljanje", Semester.Zimski,15),
+            //    new Predmet("Diplomsko delo", Semester.Zimski, 10)
+            //};
+
+            //FirebaseReaderWriter frw = new FirebaseReaderWriter();
+            //foreach (var predmet in PredmetnikLetni) {
+            //    frw.addPredmet(predmet);
+            //}
+            //foreach (var predmet in PredmetnikZimski) {
+            //    frw.addPredmet(predmet);
+            //}
+
+            //MyListView.ItemsSource = PredmetnikLetni;
+            //MyListView.HeightRequest = PredmetnikLetni.Count * MyListView.RowHeight;
+            //MyListView1.ItemsSource = PredmetnikZimski;
+        }
+
+        protected override async void OnAppearing() {
+            base.OnAppearing();
+            //await FetchAllPersons();
+            Init();
+        }
+
+
+        private async void Init() {
+            FirebaseReaderWriter frw = new FirebaseReaderWriter();
+            PredmetnikLetni = new ObservableCollection<Predmet>(await frw.getPredmetnik(Semester.Letni));
+            PredmetnikZimski = new ObservableCollection<Predmet>(await frw.getPredmetnik(Semester.Zimski));
             MyListView.ItemsSource = PredmetnikLetni;
             MyListView.HeightRequest = PredmetnikLetni.Count * MyListView.RowHeight;
             MyListView1.ItemsSource = PredmetnikZimski;
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
+        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
             if (e.Item == null)
                 return;
 
