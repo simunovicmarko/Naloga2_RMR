@@ -4,51 +4,90 @@
              x:Class="Naloga.Views.SyllabusPage"
              BackgroundColor="#006385">
     <ScrollView>
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="300"/>
-                <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Text="Letni" TextColor="White" FontSize="20" HorizontalOptions="Center" HeightRequest="50"/>
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <Button Text="Zaposleni" TextColor="White" BackgroundColor="CadetBlue" x:Name="ZaposleniBtn" Clicked="ZaposleniBtn_Clicked"></Button>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="300"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Text="Letni" TextColor="White" FontSize="20" HorizontalOptions="Center" HeightRequest="50"/>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Label Text="Predmet" FontAttributes="Bold" FontSize="24" TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" />
-                <Label Text="ECTS" FontAttributes="Bold" FontSize="24" Grid.Column="1"  TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="Predmet" FontAttributes="Bold" FontSize="24" TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="ECTS" FontAttributes="Bold" FontSize="24" Grid.Column="1"  TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" />
 
-            </Grid>
-            <ListView x:Name="MyListView"
-                      ItemsSource="{Binding PredmetnikLetni}"
+                </Grid>
+                <ListView x:Name="MyListView"
                       ItemTapped="Handle_ItemTapped"
                       HorizontalOptions="Fill"
                       BackgroundColor="Transparent"
                       RowHeight="50"
                       Grid.Row="1">
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <Label Text="{Binding Naziv}" TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" Padding="10"/>
-                                <Label Text="{Binding Ects}" Grid.Column="1"  TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" Padding="10"/>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                    <Label Text="{Binding Naziv}" TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" Padding="10"/>
+                                    <Label Text="{Binding Ects}" Grid.Column="1"  TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" Padding="10"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-            <Label Text="Zimski" TextColor="White" FontSize="20" HorizontalOptions="Center" Grid.Row="2"/>
+                <Label Text="Zimski" TextColor="White" FontSize="20" HorizontalOptions="Center" HeightRequest="50" Grid.Row="2"/>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Predmet" FontAttributes="Bold" FontSize="24" TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="ECTS" FontAttributes="Bold" FontSize="24" Grid.Column="1"  TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" />
+
+                </Grid>
+                <ListView x:Name="MyListView1"
+                      ItemTapped="Handle_ItemTapped"
+                      HorizontalOptions="Fill"
+                      BackgroundColor="Transparent"
+                      RowHeight="50"
+                      Grid.Row="3">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Naziv}" TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" Padding="10"/>
+                                    <Label Text="{Binding Ects}" Grid.Column="1"  TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" Padding="10"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!--<Label Text="Zimski" TextColor="White" FontSize="20" HorizontalOptions="Center" Grid.Row="2"/>
             <Grid  Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -60,7 +99,6 @@
 
             </Grid>
             <ListView x:Name="MyListView1"
-            ItemsSource="{Binding PredmetnikZimski}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement"
             HorizontalOptions="Fill"
@@ -84,7 +122,8 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+            </ListView>-->
+            </Grid>
         </Grid>
     </ScrollView>
 

@@ -62,8 +62,9 @@ namespace Naloga.Views
 
         private async Task Init() {
             FirebaseReaderWriter frw = new FirebaseReaderWriter();
-            PredmetnikLetni = new ObservableCollection<Predmet>(await frw.getPredmetnik(Semester.Letni));
-            PredmetnikZimski = new ObservableCollection<Predmet>(await frw.getPredmetnik(Semester.Zimski));
+            var all = await frw.getAllPredmetAsync() ;
+            PredmetnikLetni = new ObservableCollection<Predmet>(all.Where(x => x.Semester == Semester.Letni));
+            PredmetnikZimski = new ObservableCollection<Predmet>(all.Where(x => x.Semester == Semester.Zimski));
             MyListView.ItemsSource = PredmetnikLetni;
             MyListView.HeightRequest = PredmetnikLetni.Count * MyListView.RowHeight;
             MyListView1.ItemsSource = PredmetnikZimski;
@@ -73,10 +74,14 @@ namespace Naloga.Views
             if (e.Item == null)
                 return;
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+            //await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
+        }
+
+        private async void ZaposleniBtn_Clicked(object sender, EventArgs e) {
+            await Navigation.PushAsync(new Employees());
         }
     }
 }
