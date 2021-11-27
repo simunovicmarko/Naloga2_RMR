@@ -16,12 +16,11 @@ namespace Naloga
         private readonly FirebaseClient firebase = new FirebaseClient("https://rmr-test3-default-rtdb.firebaseio.com/");
 
         public async Task<IEnumerable<Predmet>> getAllPredmetAsync() {
-            var neki = (await firebase.Child(childName).OnceAsync<Predmet>());
             var temp = (await firebase.Child(childName).OnceAsync<Predmet>()).Select(item => new Predmet
                 {
                     Id = item.Object.Id,
                     Naziv = item.Object.Naziv,
-                    PSemester = item.Object.PSemester,
+                    Semester = item.Object.Semester,
                     Ects = item.Object.Ects
                 }).ToList();
             return temp;
@@ -29,7 +28,7 @@ namespace Naloga
 
         public async Task<IEnumerable<Predmet>> getPredmetnik(Semester semester) {
             var predmeti = await getAllPredmetAsync();
-            predmeti = predmeti.Where(p => p.PSemester == semester);
+            predmeti = predmeti.Where(p => p.Semester == semester);
             return predmeti;
         }
 

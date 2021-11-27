@@ -56,12 +56,11 @@ namespace Naloga.Views
 
         protected override async void OnAppearing() {
             base.OnAppearing();
-            //await FetchAllPersons();
-            Init();
+            await Init();
         }
 
 
-        private async void Init() {
+        private async Task Init() {
             FirebaseReaderWriter frw = new FirebaseReaderWriter();
             PredmetnikLetni = new ObservableCollection<Predmet>(await frw.getPredmetnik(Semester.Letni));
             PredmetnikZimski = new ObservableCollection<Predmet>(await frw.getPredmetnik(Semester.Zimski));

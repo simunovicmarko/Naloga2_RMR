@@ -7,43 +7,38 @@ namespace Naloga.Models
 {
     public class Predmet
     {
-        private Guid id;
-        private string naziv;
-        private int ects;
-        private Semester semester;
+        public Guid Id { get; set; }
+        public string Naziv { get; set; }
+        public int Ects { get; set; }
+        public Semester Semester { get; set; }
 
-
-        public Predmet(string naziv = "Dodaj naziv", int ects = 5)
-        {
-            this.id = Guid.NewGuid();
-            this.Naziv = naziv;
-            this.Ects = ects;
-        }
-
-        public Predmet(Guid id, string naziv, Semester semester, int ects = 5) {
-            this.id = id;
-            this.naziv = naziv;
-            this.ects = ects;
-            this.semester = semester;
-        }
-        public Predmet(string naziv, Semester semester, int ects = 5) {
-            this.id = Guid.NewGuid();
-            this.naziv = naziv;
-            this.ects = ects;
-            this.semester = semester;
-        }
-
-        //public string CellPredmet
+        //public Predmet(string naziv = "Dodaj naziv", int ects = 5)
         //{
-        //    get
-        //    {
-        //        return $"id: {id}, naziv: {naziv}, ects: {ects}, semester: {semester}";
-        //    }
+        //    this.Id = GuId.NewGuId();
+        //    this.Naziv = naziv;
+        //    this.Ects = ects;
         //}
 
-        public Guid Id { get => id; set => id = value; }
-        public string Naziv { get => naziv; set => naziv = value; }
-        public int Ects { get => ects; set => ects = value; }
-        public Semester PSemester { get => semester; set => semester = value; }
+        //public Predmet(GuId Id, string naziv, Semester semester, int ects = 5) {
+        //    this.Id = Id;
+        //    this.naziv = Naziv;
+        //    this.ects = ects;
+        //    this.semester = semester;
+        //}
+        //public Predmet(string Naziv, Semester semester, int ects = 5) {
+        //    this.Id = GuId.NewGuId();
+        //    this.Naziv = Naziv;
+        //    this.ects = ects;
+        //    this.semester = semester;
     }
+
+    //public string CellPredmet
+    //{
+    //    get
+    //    {
+    //        return $"Id: {Id}, Naziv: {Naziv}, ects: {ects}, semester: {semester}";
+    //    }
+    //}
+
 }
+
