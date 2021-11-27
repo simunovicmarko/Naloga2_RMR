@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "182102256312",
+    "project_id": "rmr-test3",
+    "storage_bucket": "rmr-test3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182102256312:android:1bc1381d424a41b2ab224d",
+        "android_client_info": {
+          "package_name": "com.companyname.naloga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "182102256312-epk5rib2uckhr5b4it6ab2lvsvqf1nnh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArFfV-8w8XR-LrdLvSmUA0wwvrYql4etI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "182102256312-epk5rib2uckhr5b4it6ab2lvsvqf1nnh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

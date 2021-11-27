@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Naloga.Views.MainPage">
+    <ContentPage.Content>
+        
+        <StackLayout BackgroundColor="White">
+            <Label Text="LOGIN!"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" 
+                TextColor="#006385"
+                FontSize="32"
+                FontAttributes="Bold"
+                   />
+            <Label Text="Name:" 
+                   FontSize="24"
+                   TextColor="#006385"
+                   Padding="10"/>
+            <Entry x:Name="NameEntry"
+                   Placeholder="Name..."
+                   FontSize="24"
+                   Margin="10"
+                   />
+            <Label Text="Password:" 
+                   FontSize="24"
+                   TextColor="#006385"
+                   Padding="10"/>
+            <Entry x:Name="PasswordEntry"
+                   Placeholder="Password..."
+                   FontSize="24"
+                   Margin="10"
+                   IsPassword="True"
+                   />
+            <Button x:Name="LoginBtn"
+                    Clicked="LoginBtn_Clicked"
+                    Text="LOGIN"
+                    FontSize="24"
+                    TextColor="White"
+                    BackgroundColor="#006385"
+                    Margin="10"
+                    VerticalOptions="End"/>
+            <Button Text="ABOUT"
+                    FontSize="24"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Margin="10"
+                    VerticalOptions="End"
+                    Clicked="Button_Clicked"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

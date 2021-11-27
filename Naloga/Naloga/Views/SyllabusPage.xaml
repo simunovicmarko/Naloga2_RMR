@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Naloga.Views.SyllabusPage"
+             BackgroundColor="#006385">
+    <ScrollView>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="Letni" TextColor="White" FontSize="20" HorizontalOptions="Center" HeightRequest="50"/>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Predmet" FontAttributes="Bold" FontSize="24" TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" />
+                <Label Text="ECTS" FontAttributes="Bold" FontSize="24" Grid.Column="1"  TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" />
+
+            </Grid>
+            <ListView x:Name="MyListView"
+                      ItemsSource="{Binding PredmetnikLetni}"
+                      ItemTapped="Handle_ItemTapped"
+                      HorizontalOptions="Fill"
+                      BackgroundColor="Transparent"
+                      RowHeight="50"
+                      Grid.Row="1">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding Naziv}" TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" Padding="10"/>
+                                <Label Text="{Binding Ects}" Grid.Column="1"  TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" Padding="10"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Text="Zimski" TextColor="White" FontSize="20" HorizontalOptions="Center" Grid.Row="2"/>
+            <Grid  Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Predmet" FontAttributes="Bold" FontSize="24" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Label Text="ECTS" FontAttributes="Bold" FontSize="24" Grid.Column="1"  TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" />
+
+            </Grid>
+            <ListView x:Name="MyListView1"
+            ItemsSource="{Binding PredmetnikZimski}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement"
+            HorizontalOptions="Fill"
+            BackgroundColor="Transparent"
+            RowHeight="50"
+            Grid.Row="3"
+            >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding Naziv}" TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" Padding="10"/>
+                                <Label Text="{Binding Ects}" Grid.Column="1"  TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center" Padding="10"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
